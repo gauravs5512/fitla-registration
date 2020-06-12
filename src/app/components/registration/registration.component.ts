@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../../services/registration.service';
-import { Constant } from '../../constant';
+import { Constant } from '../../constant2';
 
 @Component({
   selector: 'app-registration',
