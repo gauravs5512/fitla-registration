@@ -1,3 +1,8 @@
 .text-align-left {
     text-align: left;
 }
+
+.form-group {
+    color: white;
+    text-align: left;
+}
