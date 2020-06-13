@@ -28,10 +28,10 @@ export class RegistrationComponent implements OnInit {
 
     Constant.loader = true;
     this.regService.register(payload).subscribe(res => {
-      if(res['error'].length > 1) {
-        alert(res['error']);
-      } else {
-        alert(res);
+      if(res && res['error']) {
+        alert(res['error'])
+      } else if(res['mobile']) {
+        alert('Registration Success');
       }
       Constant.loader = false;
     }, err => {
