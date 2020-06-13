@@ -1,4 +1,5 @@
 <form #reg="ngForm" (ngSubmit)="submitForm(reg)">
+    
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" #name="ngModel" ngModel class="form-control" pattern="[a-zA-Z ]*" id="name" name="name" maxlength="30" required>
@@ -7,6 +8,14 @@
         <div *ngIf="name.errors.pattern">Name should be only alphabets</div>
         <div *ngIf="name.errors.maxlength">Name should be maximum of 30 characters</div>
       </div>
+    </div>
+    <div class="form-group">
+        <label for="name">Email</label>
+        <input type="text" #email="ngModel" ngModel class="form-control" pattern=".*dbs.com" id="email" name="email" required>
+        <div class="alert alert-danger text-align-left" *ngIf="email.touched && !email.valid">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.pattern">Email should be only dbs mail</div>
+        </div>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
@@ -50,9 +59,9 @@
     <div class="form-group">
         <label for="goal">Select Goal</label>
         <select #goal="ngModel" ngModel name="goal" class="form-control" id="goal" placeholder="Please select Goal" required>
-            <option value="Walking">Steps</option>
-            <option value="Running">Running</option>
-            <option value="Calorie">Burn Calorie</option>
+            <option value="Walking">200K Steps</option>
+            <option value="Running">150KM Running</option>
+            <option value="Calorie">Burn Calorie 10000K</option>
         </select>
         <div class="alert alert-danger text-align-left" *ngIf="goal.touched && !goal.valid">
             <div *ngIf="goal.errors.required">Goal is required</div>

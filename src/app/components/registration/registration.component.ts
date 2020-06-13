@@ -23,8 +23,9 @@ export class RegistrationComponent implements OnInit {
     let goal = reg.controls.goal.value;
     let question = reg.controls.question.value;
     let answer = reg.controls.answer.value;
+    let email = reg.controls.answer.value;
 
-    let payload = {name, password, mobile, weight, gender, goal, question, answer};
+    let payload = {name, password, mobile, weight, gender, goal, question, answer, email};
 
     Constant.loader = true;
     this.regService.register(payload).subscribe(res => {
