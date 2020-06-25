@@ -11,6 +11,14 @@
     bottom: 0;
     right: 0;
   }
+
+  .app .btn-action {
+    color: #FFFFFF;
+    background: #222225;
+    border-color: #00aeda;
+    opacity: 0.9;
+    border-radius: 30px;
+}
   
   /* Transparent Overlay */
   .loading:before {
