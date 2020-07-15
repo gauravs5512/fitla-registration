@@ -26,20 +26,21 @@ export class RegistrationComponent implements OnInit {
     let email = reg.controls.email.value;
 
     let payload = {name, password, mobile, weight, gender, goal, question, answer, email};
+    console.log(payload);
 
-    Constant.loader = true;
-    this.regService.register(payload).subscribe(res => {
-      if(res && res['error']) {
-        alert(res['error'])
-      } else if(res['mobile']) {
-        alert('Registration Success');
-      }
-      Constant.loader = false;
-    }, err => {
-      alert('unknown error occured');
-      console.log(err);
-      Constant.loader = false;
-    });
+    // Constant.loader = true;
+    // this.regService.register(payload).subscribe(res => {
+    //   if(res && res['error']) {
+    //     alert(res['error'])
+    //   } else if(res['mobile']) {
+    //     alert('Registration Success');
+    //   }
+    //   Constant.loader = false;
+    // }, err => {
+    //   alert('unknown error occured');
+    //   console.log(err);
+    //   Constant.loader = false;
+    // });
   }
 
 }

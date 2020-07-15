@@ -66,6 +66,42 @@
   .navbar-default {
     background-color: #222225;
 }
+
+.fitla-header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 4;
+  background-color: rgb(226, 88, 54);
+  align-items: center;
+}
+
+.fitla-header h5 {
+  color: white;
+  margin: 20px;
+}
+
+.fitla-banner {
+  display: flex;
+  overflow: hidden;
+  height: 400px;
+  width: 100%;
+}
+
+.fitla-banner-main-image {
+  
+}
+
+.fitla-banner-main-col {
+  display: flex;
+  flex-basis: 50%;
+}
+
+.fitla-banner-filler-col {
+  flex-basis: 50%;
+  background-image: 
+}
   
   /* Animation */
   
