@@ -84,13 +84,16 @@
 
 .fitla-banner {
   display: flex;
+  justify-content: center;
   overflow: hidden;
-  height: 400px;
-  width: 100%;
+  padding-top: 60px;
+  background-color: rgb(115, 148, 179);
 }
 
 .fitla-banner-main-image {
-  
+  width: 100%;
+  max-width: 900px;
+  height: auto;
 }
 
 .fitla-banner-main-col {
@@ -100,7 +103,7 @@
 
 .fitla-banner-filler-col {
   flex-basis: 50%;
-  background-image: 
+  background-image: url("../assets/images/fitla-banner-filler.png");
 }
   
   /* Animation */

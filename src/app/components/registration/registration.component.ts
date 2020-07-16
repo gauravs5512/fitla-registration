@@ -9,23 +9,52 @@ import { Constant } from '../../constant2';
 })
 export class RegistrationComponent implements OnInit {
 
+  public onPage: string = 'button';
+  public name: string;
+  public email: string;
+  public password: string;
+  public mobile: string;
+  public question: string;
+  public answer: string;
+  public gender: any;
+  public weight: any;
+  public goal: any;
+
   constructor(private regService: RegistrationService) { }
 
   ngOnInit() {
   }
 
-  submitForm(reg) {
-    let name = reg.controls.name.value;
-    let password = reg.controls.password.value;
-    let mobile = reg.controls.mobile.value;
-    let weight = reg.controls.weight.value;
-    let gender = reg.controls.gender.value;
-    let goal = reg.controls.goal.value;
-    let question = reg.controls.question.value;
-    let answer = reg.controls.answer.value;
-    let email = reg.controls.email.value;
+  public startRegistration() {
+    this.onPage = 'create-account';
+  }
 
-    let payload = {name, password, mobile, weight, gender, goal, question, answer, email};
+  public goToFitnessProfile(reg) {
+    this.name = reg.controls.name.value;
+    this.password = reg.controls.password.value;
+    this.email = reg.controls.email.value;
+    this.mobile = reg.controls.mobile.value;
+    this.question = reg.controls.question.value;
+    this.answer = reg.controls.answer.value;
+    this.onPage = 'fitness-profile';
+  }
+
+  public submitForm(reg) {
+    this.gender = reg.controls.gender.value;
+    this.weight = reg.controls.weight.value;
+    this.goal = reg.controls.goal.value;
+
+    let payload = { 
+      name: this.name,
+      password: this.password,
+      mobile: this.mobile,
+      weight: this.weight,
+      gender: this.gender,
+      goal: this.goal,
+      question: this. question,
+      answer: this.answer,
+      email: this.email
+    };
     console.log(payload);
 
     // Constant.loader = true;
