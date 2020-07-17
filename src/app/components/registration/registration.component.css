@@ -6,3 +6,24 @@
     color: white;
     text-align: left;
 }
+
+.registration-wrapper {
+    padding: 80px;
+    background-color: rgb(167, 217, 237);
+    text-align: center;
+}
+
+button {
+    padding: 20px;
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    background-color: #faecab;
+    color: #002e31;
+    width: 200px;
+}
+
+button:hover {
+    background-color: rgb(226, 88, 54);
+    color: white;
+}
