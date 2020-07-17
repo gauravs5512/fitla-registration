@@ -16,9 +16,9 @@ export class RegistrationComponent implements OnInit {
   public mobile: string;
   public question: string;
   public answer: string;
-  public gender: any;
-  public weight: any;
-  public goal: any;
+  public gender: string;
+  public weight: string;
+  public goal: string;
 
   constructor(private regService: RegistrationService) { }
 
@@ -51,8 +51,8 @@ export class RegistrationComponent implements OnInit {
       weight: this.weight,
       gender: this.gender,
       goal: this.goal,
-      question: this. question,
-      answer: this.answer,
+      question: this.question,
+      andswer: this.answer,
       email: this.email
     };
     console.log(payload);
