@@ -7,6 +7,7 @@
     <form #reg="ngForm" (ngSubmit)="submitForm(reg)">
     
         <ng-container *ngIf="onPage==='create-account'">
+            <h3>Step 1: Account Setup</h3>
             <div class="form-group">
                 <div class="d-flex">
                     <div class="label-wrap">
@@ -112,7 +113,7 @@
                 </div>
             </div>
             <ng-container *ngIf="!(name.valid && email.valid && password.valid && mobile.valid && question.valid && answer.valid)">
-                <button>Next</button>
+                <button (click)="blockNext()">Next</button>
             </ng-container>
             <ng-container *ngIf="name.valid && email.valid && password.valid && mobile.valid && question.valid && answer.valid">
                 <button (click)="goToFitnessProfile(reg)">Next</button>
@@ -120,6 +121,7 @@
         </ng-container>
     
         <ng-container *ngIf="onPage==='fitness-profile'">
+            <h3>Step 2: Fitness Profile</h3>
             <div class="form-group">
                 <div class="d-flex">
                     <div class="label-wrap">
@@ -176,9 +178,19 @@
                 </div>
             </div>
             <button (click)="startRegistration()">Back</button>
-            <button type="submit" [disabled]="!reg.valid">Register</button>
+            <ng-container *ngIf="!(weight.valid && goal.valid)">
+                <button (click)="blockSubmit()">Register</button>
+            </ng-container>
+            <ng-container *ngIf="weight.valid && goal.valid">
+                <button type="submit" [disabled]="!reg.valid">Register</button>
+            </ng-container>
         </ng-container>
-        
     </form>
+
+    <ng-container *ngIf="onPage==='thank-you'">
+        <div class="thank-you">
+            <h1>Thank you for registering!</h1>
+        </div>
+    </ng-container>
 
 </div>

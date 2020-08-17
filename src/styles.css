@@ -2,3 +2,13 @@
 html {
     background-color: rgb(167, 217, 237);
 }
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: rgb(167, 217, 237);
+}
+
+#main {
+    background-color: rgb(167, 217, 237);
+}
