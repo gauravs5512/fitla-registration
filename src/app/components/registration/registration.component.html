@@ -1,91 +1,196 @@
-<form #reg="ngForm" (ngSubmit)="submitForm(reg)">
+<div class="registration-wrapper">
+
+    <ng-container *ngIf="onPage==='button'">
+        <button (click)="startRegistration()">Register Now</button>
+    </ng-container>
+
+    <form #reg="ngForm" (ngSubmit)="submitForm(reg)">
     
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" #name="ngModel" ngModel class="form-control" pattern="[a-zA-Z ]*" id="name" name="name" maxlength="30" required>
-      <div class="alert alert-danger text-align-left" *ngIf="name.touched && !name.valid">
-        <div *ngIf="name.errors.required">Name is required</div>
-        <div *ngIf="name.errors.pattern">Name should be only alphabets</div>
-        <div *ngIf="name.errors.maxlength">Name should be maximum of 30 characters</div>
-      </div>
-    </div>
-    <div class="form-group">
-        <label for="name">Email</label>
-        <input type="text" #email="ngModel" ngModel class="form-control" pattern=".*dbs.com" id="email" name="email" required>
-        <div class="alert alert-danger text-align-left" *ngIf="email.touched && !email.valid">
-          <div *ngIf="email.errors.required">Email is required</div>
-          <div *ngIf="email.errors.pattern">Email should be only dbs mail</div>
+        <ng-container *ngIf="onPage==='create-account'">
+            <h3>Step 1: Account Setup</h3>
+            <div class="form-group">
+                <div class="d-flex">
+                    <div class="label-wrap">
+                        <label for="name">Name:</label>
+                    </div>
+                    <input type="text" #name="ngModel" ngModel class="form-control" pattern="[a-zA-Z ]*" id="name" name="name" maxlength="30" required>
+                </div>
+                <div class="d-flex">
+                    <div class="label-wrap">
+                    </div>
+                    <div *ngIf="name.touched && !name.valid">
+                        <div class="input-error" *ngIf="name.errors.required">Name is required</div>
+                        <div class="input-error" *ngIf="name.errors.pattern">Name should be only alphabets</div>
+                        <div class="input-error" *ngIf="name.errors.maxlength">Name should be maximum of 30 characters</div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="d-flex">
+                    <div class="label-wrap">
+                        <label for="name">Email:</label>
+                    </div>
+                    <input type="text" #email="ngModel" ngModel class="form-control" pattern=".*dbs.com" id="email" name="email" required>
+                </div>
+                <div class="d-flex">
+                    <div class="label-wrap">
+                    </div>
+                    <div *ngIf="email.touched && !email.valid">
+                        <div class="input-error" *ngIf="email.errors.required">Email is required</div>
+                        <div class="input-error" *ngIf="email.errors.pattern">Email should be only dbs mail</div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="d-flex">
+                    <div class="label-wrap">
+                        <label for="password">Password:</label>
+                    </div>
+                    <input type="password" #password="ngModel" ngModel name="password" class="form-control" id="password" minlength="6" maxlength="20" required>
+                </div>
+                <div class="d-flex">
+                    <div class="label-wrap">
+                    </div>
+                    <div *ngIf="password.touched && !password.valid">
+                        <div class="input-error" *ngIf="password.errors.required">Password is required</div>
+                        <div class="input-error" *ngIf="password.errors.minlength">Password should be minimum of 6 characters</div>
+                        <div class="input-error" *ngIf="password.errors.maxlength">Password should be maximum of 20 characters</div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="d-flex">
+                    <div class="label-wrap">
+                        <label for="mobile">Mobile:</label>
+                    </div>
+                    <input type="text" #mobile="ngModel" ngModel name="mobile" class="form-control" id="mobile" pattern="[0-9]*" minlength="10" maxlength="10" required>
+                </div>
+                <div class="d-flex">
+                    <div class="label-wrap">
+                    </div>
+                    <div *ngIf="mobile.touched && !mobile.valid">
+                        <div class="input-error" *ngIf="mobile.errors.required">Mobile is required</div>
+                        <div class="input-error" *ngIf="mobile.errors.pattern">Mobile should be only Numbers</div>
+                        <div class="input-error" *ngIf="mobile.errors.minlength">Mobile should be minimum of 10 digits</div>
+                        <div class="input-error" *ngIf="mobile.errors.maxlength">mobile should be maximum of 10 digits</div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="d-flex">
+                    <div class="label-wrap">
+                        <label for="question">Select your security Question:</label>
+                    </div>
+                    <select #question="ngModel" ngModel name="question" class="form-control" id="question" required>
+                        <option value="1">What primary school did you attend?</option>
+                        <option value="2">What were the last 4 digits of you childhood phone number?</option>
+                        <option value="3">What are the last 5 digits of your driver's license number?</option>
+                        <option value="4">In what town or city your mother and father met?</option>
+                    </select>
+                </div>
+                <div class="d-flex">
+                    <div class="label-wrap">
+                    </div>
+                    <div *ngIf="question.touched && !question.valid">
+                        <div class="input-error" *ngIf="question.errors.required">Question is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="d-flex">
+                    <div class="label-wrap">
+                        <label for="answer">Answer:</label>
+                    </div>
+                    <input type="text" #answer="ngModel" ngModel name="answer" class="form-control" id="answer" maxlength="10" required>
+                </div>
+                <div class="d-flex">
+                    <div class="label-wrap">
+                    </div>
+                    <div *ngIf="answer.touched && !answer.valid">
+                        <div class="input-error" *ngIf="answer.errors.required">Answer is required</div>
+                        <div class="input-error" *ngIf="answer.errors.maxlength">Answer should be maximum of 10 characters</div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="!(name.valid && email.valid && password.valid && mobile.valid && question.valid && answer.valid)">
+                <button (click)="blockNext()">Next</button>
+            </ng-container>
+            <ng-container *ngIf="name.valid && email.valid && password.valid && mobile.valid && question.valid && answer.valid">
+                <button (click)="goToFitnessProfile(reg)">Next</button>
+            </ng-container>
+        </ng-container>
+    
+        <ng-container *ngIf="onPage==='fitness-profile'">
+            <h3>Step 2: Fitness Profile</h3>
+            <div class="form-group">
+                <div class="d-flex">
+                    <div class="label-wrap">
+                        <label for="gender">Gender:</label>
+                    </div>
+                    <!-- <input type="text" #gender="ngModel" ngModel name="gender" class="form-control" id="gender" required> -->
+                    <select #gender="ngModel" ngModel name="gender" class="form-control" id="gender" placeholder="Please select Gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="d-flex">
+                    <div class="label-wrap">
+                    </div>
+                    <div *ngIf="gender.touched && !gender.valid">
+                        <div class="input-error" *ngIf="gender.errors.required">Gender is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="d-flex">
+                    <div class="label-wrap">
+                        <label for="weight">Weight:</label>
+                    </div>
+                    <input type="text" #weight="ngModel" ngModel name="weight" class="form-control" id="weight" pattern="[0-9]*" maxlength="3" required>
+                </div>
+                <div class="d-flex">
+                    <div class="label-wrap">
+                    </div>
+                    <div *ngIf="weight.touched && !weight.valid">
+                        <div class="input-error" *ngIf="weight.errors.required">Weight is required</div>
+                        <div class="input-error" *ngIf="weight.errors.pattern">Weight should be only Numbers</div>
+                        <div class="input-error" *ngIf="weight.errors.maxlength">Weight should be maximum of 3 digits</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="d-flex">
+                    <div class="label-wrap">
+                        <label for="goal">Goal:</label>
+                    </div>
+                    <select #goal="ngModel" ngModel name="goal" class="form-control" id="goal" placeholder="Please select Goal" required>
+                        <option value="Walking">200K Steps</option>
+                        <option value="Running">150KM Running</option>
+                        <option value="Calorie">Burn Calorie 10000K</option>
+                    </select>
+                </div>
+                <div class="d-flex">
+                    <div class="label-wrap">
+                    </div>
+                    <div *ngIf="goal.touched && !goal.valid">
+                        <div class="input-error" *ngIf="goal.errors.required">Goal is required</div>
+                    </div>
+                </div>
+            </div>
+            <button (click)="startRegistration()">Back</button>
+            <ng-container *ngIf="!(weight.valid && goal.valid)">
+                <button (click)="blockSubmit()">Register</button>
+            </ng-container>
+            <ng-container *ngIf="weight.valid && goal.valid">
+                <button type="submit" [disabled]="!reg.valid">Register</button>
+            </ng-container>
+        </ng-container>
+    </form>
+
+    <ng-container *ngIf="onPage==='thank-you'">
+        <div class="thank-you">
+            <h1>Thank you for registering!</h1>
         </div>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" #password="ngModel" ngModel name="password" class="form-control" id="password" minlength="6" maxlength="20" required>
-      <div class="alert alert-danger text-align-left" *ngIf="password.touched && !password.valid">
-        <div *ngIf="password.errors.required">Password is required</div>
-        <div *ngIf="password.errors.minlength">Password should be minimum of 6 characters</div>
-        <div *ngIf="password.errors.maxlength">Password should be maximum of 20 characters</div>
-      </div>
-    </div>
-    <div class="form-group">
-        <label for="mobile">Mobile</label>
-        <input type="text" #mobile="ngModel" ngModel name="mobile" class="form-control" id="mobile" pattern="[0-9]*" minlength="10" maxlength="10" required>
-        <div class="alert alert-danger text-align-left" *ngIf="mobile.touched && !mobile.valid">
-            <div *ngIf="mobile.errors.required">Mobile is required</div>
-            <div *ngIf="mobile.errors.pattern">Mobile should be only Numbers</div>
-            <div *ngIf="mobile.errors.minlength">Mobile should be minimum of 10 digits</div>
-            <div *ngIf="mobile.errors.maxlength">mobile should be maximum of 10 digits</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="weight">Weight</label>
-        <input type="text" #weight="ngModel" ngModel name="weight" class="form-control" id="weight" pattern="[0-9]*" maxlength="3" required>
-        <div class="alert alert-danger text-align-left" *ngIf="weight.touched && !weight.valid">
-            <div *ngIf="weight.errors.required">weight is required</div>
-            <div *ngIf="weight.errors.pattern">weight should be only Numbers</div>
-            <div *ngIf="weight.errors.maxlength">weight should be maximum of 3 digits</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="gender">Select Gender</label>
-        <!-- <input type="text" #gender="ngModel" ngModel name="gender" class="form-control" id="gender" required> -->
-        <select #gender="ngModel" ngModel name="gender" class="form-control" id="gender" placeholder="Please select Gender" required>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-        <div class="alert alert-danger text-align-left" *ngIf="gender.touched && !gender.valid">
-            <div *ngIf="gender.errors.required">Gender is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="goal">Select Goal</label>
-        <select #goal="ngModel" ngModel name="goal" class="form-control" id="goal" placeholder="Please select Goal" required>
-            <option value="Walking">200K Steps</option>
-            <option value="Running">150KM Running</option>
-            <option value="Calorie">Burn Calorie 10000K</option>
-        </select>
-        <div class="alert alert-danger text-align-left" *ngIf="goal.touched && !goal.valid">
-            <div *ngIf="goal.errors.required">Goal is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="question">Select your security Question</label>
-        <select #question="ngModel" ngModel name="question" class="form-control" id="question" required>
-            <option value="1">What primary school did you attend?</option>
-            <option value="2">What were the last 4 digits of you childhood phone number?</option>
-            <option value="3">What are the last 5 digits of your driver's license number?</option>
-            <option value="4">In what town or city your mother and father met?</option>
-        </select>
-        <div class="alert alert-danger text-align-left" *ngIf="question.touched && !question.valid">
-            <div *ngIf="question.errors.required">Question is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="answer">Answer</label>
-        <input type="text" #answer="ngModel" ngModel name="answer" class="form-control" id="answer" maxlength="10" required>
-        <div class="alert alert-danger text-align-left" *ngIf="answer.touched && !answer.valid">
-            <div *ngIf="answer.errors.required">Answer is required</div>
-            <div *ngIf="answer.errors.maxlength">Answer should be maximum of 10 characters</div>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!reg.valid">Register</button>
-</form>
+    </ng-container>
+
+</div>

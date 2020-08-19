@@ -1,3 +1,27 @@
+.registration-wrapper {
+    max-width: 1000px;
+    margin: 0px auto;
+}
+
+h3 {
+    color: white;
+    text-align: left;
+    font-size: 26px;
+    font-weight: bold;
+    padding-bottom: 50px;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.form-control {
+    border-radius: 0px;
+    border: 0px;
+    height: 45px;
+}
+
 .text-align-left {
     text-align: left;
 }
@@ -5,4 +29,70 @@
 .form-group {
     color: white;
     text-align: left;
+}
+
+.registration-wrapper {
+    padding: 80px;
+    background-color: rgb(167, 217, 237);
+    text-align: center;
+}
+
+button {
+    padding: 20px;
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+    border: solid 2px rgb(226, 88, 54);
+    background-color: rgb(226, 88, 54);
+    color: white;
+    width: 200px;
+}
+
+button:hover {
+    font-weight: bolder;
+    border: solid 2px white;
+}
+
+.label-wrap {
+    margin-right: 20px;
+    width: 90px;
+    flex-shrink: 0;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    color: #002e31;
+} 
+
+.input-wrapper {
+    width: 100%;
+}
+
+.input-error {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(226, 88, 54);
+}
+
+.thank-you {
+    height: 300px;
+}
+
+.thank-you h1 {
+    margin-top:150px;
+    color: white;
+    font-weight: bolder;
+    font-size: 36px;
+}
+
+@media only screen and (max-width: 768px) {
+    .d-flex {
+        display: block;
+    }
+
+    .label-wrap {
+        width: 100%;
+    }
+
+    .registration-wrapper {
+        padding: 30px;
+    }
 }
