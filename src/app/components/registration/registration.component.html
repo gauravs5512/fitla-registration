@@ -1,7 +1,7 @@
 <div class="registration-wrapper">
 
     <ng-container *ngIf="onPage==='button'">
-        <button (click)="startRegistration()">Register Now</button>
+        <button type="button" (click)="startRegistration()">Register Now</button>
     </ng-container>
 
     <form #reg="ngForm" (ngSubmit)="submitForm(reg)">
@@ -35,7 +35,9 @@
                 <div class="d-flex">
                     <div class="label-wrap">
                     </div>
-                    <p>Please use your DBS email</p>
+                    <div *ngIf="email.untouched">
+                        <p>Please use your DBS email</p>
+                    </div>
                     <div *ngIf="email.touched && !email.valid">
                         <div class="input-error" *ngIf="email.errors.required">Email is required</div>
                         <div class="input-error" *ngIf="email.errors.pattern">Email should be only dbs mail</div>
@@ -52,7 +54,9 @@
                 <div class="d-flex">
                     <div class="label-wrap">
                     </div>
-                    <p>Create a password with 6 to 20 characters</p>
+                    <div *ngIf="password.untouched">
+                        <p>Create a password with 6 to 20 characters</p> 
+                    </div>
                     <div *ngIf="password.touched && !password.valid">
                         <div class="input-error" *ngIf="password.errors.required">Password is required</div>
                         <div class="input-error" *ngIf="password.errors.minlength">Password should be minimum of 6 characters</div>
@@ -115,10 +119,10 @@
                 </div>
             </div>
             <ng-container *ngIf="!(name.valid && email.valid && password.valid && mobile.valid && question.valid && answer.valid)">
-                <button (click)="blockNext()">Next</button>
+                <button type="button" (click)="blockNext()">Next</button>
             </ng-container>
             <ng-container *ngIf="name.valid && email.valid && password.valid && mobile.valid && question.valid && answer.valid">
-                <button (click)="goToFitnessProfile(reg)">Next</button>
+                <button type="button" (click)="goToFitnessProfile(reg)">Next</button>
             </ng-container>
         </ng-container>
     
@@ -179,9 +183,9 @@
                     </div>
                 </div>
             </div>
-            <button (click)="startRegistration()">Back</button>
+            <button type="button" (click)="startRegistration()">Back</button>
             <ng-container *ngIf="!(weight.valid && goal.valid)">
-                <button (click)="blockSubmit()">Register</button>
+                <button type="button" (click)="blockSubmit()">Register</button>
             </ng-container>
             <ng-container *ngIf="weight.valid && goal.valid">
                 <button type="submit" [disabled]="!reg.valid">Register</button>
