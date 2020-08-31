@@ -35,6 +35,7 @@
                 <div class="d-flex">
                     <div class="label-wrap">
                     </div>
+                    <p>Please use your DBS email</p>
                     <div *ngIf="email.touched && !email.valid">
                         <div class="input-error" *ngIf="email.errors.required">Email is required</div>
                         <div class="input-error" *ngIf="email.errors.pattern">Email should be only dbs mail</div>
@@ -51,6 +52,7 @@
                 <div class="d-flex">
                     <div class="label-wrap">
                     </div>
+                    <p>Create a password with 6 to 20 characters</p>
                     <div *ngIf="password.touched && !password.valid">
                         <div class="input-error" *ngIf="password.errors.required">Password is required</div>
                         <div class="input-error" *ngIf="password.errors.minlength">Password should be minimum of 6 characters</div>
