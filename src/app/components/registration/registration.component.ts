@@ -78,7 +78,7 @@ export class RegistrationComponent implements OnInit {
         gender: this.gender,
         goal: this.goal,
         question: this.question,
-        andswer: this.answer,
+        answer: this.answer,
         email: this.email
       };
       console.log(payload);
