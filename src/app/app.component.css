@@ -94,6 +94,7 @@
 
 .fitla-banner {
   display: flex;
+  align-items: flex-start;
   justify-content: center;
   overflow: hidden;
   padding-top: 60px;
