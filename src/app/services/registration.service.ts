@@ -12,6 +12,9 @@ export class RegistrationService {
   constructor(private http: HttpClient) { }
 
   register(payload) {
+    if((payload.mobile + "").length < 10) {
+      payload.mobile = '65' + payload.mobile;
+    }
     return this.http.post(this.url+'api/users/', {...payload});
   }
 }
